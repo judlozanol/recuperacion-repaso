@@ -1,0 +1,55 @@
+@startuml
+left to right direction
+
+
+class Biblioteca{
+    nombre
+    recursosBibliograficos
+    txt
+    gestorRecursos
+    buscadorRecursos
+    leerRecursos()
+    
+}
+class RecursoBilbiografico{
+    tipo
+    nombre
+    autor
+    disponible
+    poseedor
+    mostrar_info()
+    cambiar_estado()
+    asignar_nombre()
+    asignar_autor()
+    asignar_poseedor()
+}
+class Usuario{
+    nombre
+    documento
+    mostrar_info()
+    asignar_nombre()
+    asignar_documento()
+    
+}
+class BusquedaRecursosB{
+    Biblioteca
+    buscarTipo()
+    buscarNombre()
+    buscarUsuario()
+
+}
+class GestorRecursosB{
+    Biblioteca
+    prestarRecurso()
+    devolverRecurso()
+}
+Biblioteca "1" *-- "n" RecursoBilbiografico : contiene
+Biblioteca "1" *-- "1" GestorRecursosB : contiene
+Biblioteca "1" *-- "1" BusquedaRecursosB : contiene
+RecursoBilbiografico -- Usuario
+RecursoBilbiografico <|-- Libro
+RecursoBilbiografico <|-- DVD
+RecursoBilbiografico <|-- RevistaCientifica
+
+
+@enduml
