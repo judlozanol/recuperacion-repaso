@@ -11,19 +11,21 @@ class HojaDibujo:
         self.interfaz= InterfazFiguras()
         self.cursor= pygame.sprite.Group()
         self.cursor.add(Cursor())
+        self.gatos=pygame.sprite.Group()
 
     def get_input(self):
-        eventos=pygame.event.get()
+        eventos= pygame.event.get(pygame.MOUSEBUTTONUP)
         for event in eventos:
             if event.type == pygame.MOUSEBUTTONUP:
                 gato = Gato()
-                self.cursor.add(gato)
+                self.gatos.add(gato)
 
     def run(self):
         self.get_input()
         self.interfaz.draw(self.capa)
 
         self.cursor.update()
+        self.gatos.draw(self.capa)
         self.cursor.draw(self.capa)
         
         
