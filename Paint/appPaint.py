@@ -7,7 +7,7 @@ class AppPaint:
         self.pantalla= pygame.display.set_mode((ajustes.ANCHO_PANTALLA, ajustes.ALTO_PANTALLA))
         self.clock = pygame.time.Clock()
         self.activo=True
-        #pygame.mouse.set_visible(False)
+        pygame.mouse.set_visible(False)
         self.hoja= HojaDibujo(self.pantalla)
     def correr(self):
         while self.activo:

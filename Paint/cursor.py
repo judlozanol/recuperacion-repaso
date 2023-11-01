@@ -8,6 +8,4 @@ class Cursor(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft= pygame.mouse.get_pos())#topleft= pygame.mouse.get_pos()
 
     def update(self):
-        mouse_pos= pygame.mouse.get_pos()
-        self.rect.x = mouse_pos[0]
-        self.rect.y = mouse_pos[1]
+        self.rect = self.image.get_rect(topleft= pygame.mouse.get_pos())
